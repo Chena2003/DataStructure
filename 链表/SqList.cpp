@@ -1,3 +1,13 @@
+/**
+ * @file SqList.cpp
+ * @author Chena
+ * @brief 顺序表的基本操作
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"

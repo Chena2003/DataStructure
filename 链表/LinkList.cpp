@@ -1,9 +1,20 @@
+/**
+ * @file LinkList.cpp
+ * @author chena
+ * @brief 链表的基本操作
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
-#include "list_common.h"
+#include "common.h"
 
 typedef int ElemType;
 
+// 结构体定义
 typedef struct LNode 
 {
     ElemType data;
@@ -82,7 +93,7 @@ status ListDelete_L(LinkList &L, int i, ElemType &e)
     return OK;
 };
 
-// 头插法创建链表
+// 头插法创建链表, 数据为倒序
 void CreateList_L(LinkList &L, int n)
 {
     L = (LinkList)malloc(sizeof(LNode));
@@ -101,7 +112,7 @@ void CreateList_L(LinkList &L, int n)
 
 };
 
-// 尾插法创建链表
+// 尾插法创建链表， 数据为正序
 void CreateList_R(LinkList &L, int n)
 {
     L = (LinkList)malloc(sizeof(LNode));
