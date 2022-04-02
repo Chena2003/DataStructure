@@ -1,9 +1,20 @@
+/**
+ * @file LinkQueue.cpp
+ * @author chena
+ * @brief 使用链表实现队列
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
 
 typedef int ElemType;
 
+// 队列节点结构体定义
 typedef struct QNode
 {
     /* data */
@@ -11,12 +22,14 @@ typedef struct QNode
     QNode * next;
 }QNode;
 
+// 队列结构体定义
 typedef struct LiQuene
 {
-    QNode* front;
-    QNode* rear;
+    QNode* front;   //头节点
+    QNode* rear;    //尾节点
 }LiQuene;
 
+// 队列初始化，头节点和尾节点赋值为NULL
 status initQueue(LiQuene *&lqu)
 {
     lqu = (LiQuene *)malloc(sizeof(LiQuene));
@@ -26,6 +39,7 @@ status initQueue(LiQuene *&lqu)
     return OK;
 }
 
+// 队列是否为空
 status isQueueEmpty(LiQuene *lqu)
 {
     if(lqu->front == NULL || lqu->rear == NULL)
@@ -33,12 +47,14 @@ status isQueueEmpty(LiQuene *lqu)
     else    return FALSE;
 }
 
+// 入队列
 status enQueue(LiQuene *lqu, ElemType x)
 {
     QNode * q = (QNode *)malloc(sizeof(QNode));
     q->data = x;
     q->next = NULL;
 
+    // 如队列为空，特殊处理
     if(lqu->rear == NULL)
         lqu->front = lqu->rear = q;
     else
@@ -50,12 +66,14 @@ status enQueue(LiQuene *lqu, ElemType x)
     return OK;
 }
 
+// 出队列
 status deQueue(LiQuene *lqu, ElemType &x)
 {
     if(isQueueEmpty(lqu)) return ERROR;
 
     QNode *q = lqu->front;
 
+    // 如队列中只有一个元素，则特殊处理
     if(lqu->front == lqu->rear)
         lqu->front = lqu->rear = NULL;
     else

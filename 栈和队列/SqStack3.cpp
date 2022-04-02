@@ -1,10 +1,19 @@
+/**
+ * @file SqStack3.cpp
+ * @author your name (you@domain.com)
+ * @brief 链栈
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
 
 typedef int ElemType;
-
-
+// 结构体定义
 typedef struct SqStack
 {
     /* data */
@@ -12,6 +21,7 @@ typedef struct SqStack
     struct SqStack * next;
 }SqStack;
 
+// 栈初始化
 status InitStack(SqStack *&S)
 {
     S = (SqStack *)malloc(sizeof(SqStack));
@@ -20,12 +30,14 @@ status InitStack(SqStack *&S)
     return OK;
 };
 
+// 判断栈是否为空
 status isEmpty(SqStack *S)
 {
     if(S->next == NULL) return TRUE;
     else                return FALSE;
 };
 
+// 出栈
 status Push(SqStack *&S, ElemType e)
 {
     SqStack * p;
@@ -40,6 +52,7 @@ status Push(SqStack *&S, ElemType e)
     return OK;
 };
 
+// 出栈
 ElemType Pop(SqStack *&S)
 {
     if(isEmpty(S)) return ERROR;

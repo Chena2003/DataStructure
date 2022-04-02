@@ -1,3 +1,13 @@
+/**
+ * @file Queue.cpp
+ * @author chena
+ * @brief 使用数组实现队列
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
@@ -12,6 +22,7 @@ typedef struct
     int front;
     int rear;
 }SqQuene;
+
 
 void initQueue(SqQuene &qu)
 {

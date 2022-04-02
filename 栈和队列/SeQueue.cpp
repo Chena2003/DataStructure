@@ -1,3 +1,13 @@
+/**
+ * @file SeQueue.cpp
+ * @author chena
+ * @brief   使用数组实现循环队列
+ * @version 0.1
+ * @date 2022-04-02
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
@@ -6,6 +16,7 @@ typedef int ElemType;
 
 #define MAXSIZE 11
 
+// 结构体定义
 typedef struct 
 {
     ElemType data[MAXSIZE];
@@ -13,11 +24,13 @@ typedef struct
     int rear;
 }SqQuene;
 
+// 初始化
 void initQueue(SqQuene &qu)
 {
     qu.front = qu.rear = 0;
 };
 
+// 入队列
 status enQueue(SqQuene &qu, int x)
 {
     if((qu.rear+1)%MAXSIZE == qu.front)  return ERROR;
@@ -28,6 +41,7 @@ status enQueue(SqQuene &qu, int x)
     return OK;
 };
 
+// 出队列
 status deQueue(SqQuene &qu, int &x)
 {
     if(qu.front == qu.rear) return ERROR;
