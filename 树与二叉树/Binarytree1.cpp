@@ -1,7 +1,7 @@
 /**
  * @file Binarytree.cpp
  * @author Chena
- * @brief 树的表示方法
+ * @brief 树的左右孩子表示方法
  * @version 0.1
  * @date 2022-05-20
  * 
@@ -12,24 +12,6 @@
 #include <stdio.h>
 
 #define MAXSIZE 100
-
-/***
- * 用数组存储每一个节点，再用first指针指向首孩子节点，再用链表链接
-*/
-// 分支
-typedef struct Branch
-{
-    int cIdx;
-    struct Branch * next;
-}Branch;
-
-// 列表
-typedef struct 
-{
-    /* data */
-    int data;
-    Branch * first;
-}TNode;
 
 // 左右孩子表示法
 typedef struct BTNode

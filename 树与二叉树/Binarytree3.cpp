@@ -1,7 +1,7 @@
 /**
  * @file Binarytree3.cpp
  * @author Chena
- * @brief 线索二叉树
+ * @brief 中序线索二叉树
  * @version 0.1
  * @date 2022-05-20
  * 
@@ -19,7 +19,7 @@ typedef struct TBTNode
     struct TBTNode * rchild;
 }TBTNode;
 
-// 创建中序线索二叉树
+// 创建中序线索二叉树方法
 void InThread(TBTNode *p, TBTNode *&pre)
 {
     if(p != NULL)
@@ -36,13 +36,12 @@ void InThread(TBTNode *p, TBTNode *&pre)
             pre->rtag = 1;
         }
         pre = p;
-
         InThread(p->rchild, pre);
     }
 }
 
 // 创建中序二叉树
-void InThread(TBTNode *root)
+void CreateInThread(TBTNode *root)
 {
     TBTNode *pre = NULL;
 
@@ -70,7 +69,7 @@ TBTNode *Next(TBTNode *p)
 }
 
 // p的前续节点
-TBTNode *Last(TBTNode *p)
+TBTNode *Perior(TBTNode *p)
 {
     TBTNode *q;
     if(p->ltag == 0)
@@ -85,7 +84,7 @@ TBTNode *Last(TBTNode *p)
 }
 
 // 线索二叉树遍历
-void Inorder(TBTNode *root)
+void InOrder(TBTNode *root)
 {
     TBTNode *p = root;
     while(p->ltag == 0)
